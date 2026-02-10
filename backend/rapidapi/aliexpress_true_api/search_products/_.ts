@@ -60,6 +60,6 @@ export async function searchProducts(
     } else {
       console.error("Unexpected Error:", error);
     }
-    throw error;
+    return null;
   }
 }

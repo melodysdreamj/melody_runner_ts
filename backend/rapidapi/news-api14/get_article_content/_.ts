@@ -42,13 +42,14 @@ export async function getArticleContent(url: string): Promise<ArticleContent | n
 
   try {
     const response = await axios.request<NewsApi14ArticleResponse>(options);
-    
+
     if (response.data && response.data.data) {
       return response.data.data;
     } else {
       return null;
     }
   } catch (error: any) {
-    throw error;
+    console.error("Error fetching article content:", error);
+    return null;
   }
 }

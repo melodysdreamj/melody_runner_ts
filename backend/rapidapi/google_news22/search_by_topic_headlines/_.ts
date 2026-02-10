@@ -64,9 +64,10 @@ export async function searchByTopicHeadlines(
 ): Promise<NewsArticle[]> {
   // 입력된 topic이 유효한지 검사합니다.
   if (!VALID_TOPICS.includes(topic)) {
-    throw new Error(
-      \`Invalid topic: \${topic}. Must be one of \${VALID_TOPICS.join(", ")}\`
+    console.error(
+      `Invalid topic: ${topic}. Must be one of ${VALID_TOPICS.join(", ")}`
     );
+    return [];
   }
 
   const options = {
@@ -101,6 +102,6 @@ export async function searchByTopicHeadlines(
     }
   } catch (error) {
     console.error("Error fetching Google News by topic headlines:", error);
-    throw error;
+    return [];
   }
 }

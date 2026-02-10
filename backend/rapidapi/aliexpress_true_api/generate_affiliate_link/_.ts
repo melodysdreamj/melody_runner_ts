@@ -32,11 +32,11 @@ export async function generateAffiliateLink(
     return response.data;
   } catch (error) {
     if (axios.isAxiosError(error)) {
-        // Log more details if available
-        console.error("API Call Failed:", error.response?.data || error.message);
+      // Log more details if available
+      console.error("API Call Failed:", error.response?.data || error.message);
     } else {
-        console.error("Unexpected Error:", error);
+      console.error("Unexpected Error:", error);
     }
-    throw error;
+    return null;
   }
 }

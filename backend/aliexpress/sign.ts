@@ -71,14 +71,15 @@ export interface AliExpressResponse<T = any> {
 export async function callAliExpressApi<T = any>(
   method: string,
   businessParams: Record<string, string> = {}
-): Promise<AliExpressResponse<T>> {
+): Promise<AliExpressResponse<T> | null> {
   const appKey = process.env.ALIEXPRESS_APP_KEY;
   const appSecret = process.env.ALIEXPRESS_APP_SECRET;
 
   if (!appKey || !appSecret) {
-    throw new Error(
+    console.error(
       "Missing AliExpress API configuration (ALIEXPRESS_APP_KEY or ALIEXPRESS_APP_SECRET)"
     );
+    return null;
   }
 
   // 공통 시스템 파라미터
@@ -115,6 +116,6 @@ export async function callAliExpressApi<T = any>(
     } else {
       console.error("Unexpected Error:", error);
     }
-    throw error;
+    return null;
   }
 }

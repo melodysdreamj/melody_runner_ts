@@ -124,7 +124,9 @@ export class HotCategoryCsv {
   constructor() {
     const dataDir = path.join(__dirname, "data");
     if (!fs.existsSync(dataDir)) {
-      throw new Error(`data 폴더가 없습니다: ${dataDir}`);
+      console.error(`data 폴더가 없습니다: ${dataDir}`);
+      this.filePath = "";
+      return;
     }
 
     const csvFiles = fs
@@ -132,7 +134,9 @@ export class HotCategoryCsv {
       .filter((f) => f.endsWith(".csv"));
 
     if (csvFiles.length === 0) {
-      throw new Error(`data 폴더에 CSV 파일이 없습니다: ${dataDir}`);
+      console.error(`data 폴더에 CSV 파일이 없습니다: ${dataDir}`);
+      this.filePath = "";
+      return;
     }
 
     this.filePath = path.join(dataDir, csvFiles[0]);

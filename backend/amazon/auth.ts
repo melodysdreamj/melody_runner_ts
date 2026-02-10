@@ -33,7 +33,7 @@ let cachedToken: TokenCache | null = null;
  *
  * @returns Bearer Access Token 문자열
  */
-export async function getAccessToken(): Promise<string> {
+export async function getAccessToken(): Promise<string | null> {
   // 캐싱된 토큰이 유효하면 재사용
   if (cachedToken && Date.now() < cachedToken.expiresAt - REFRESH_MARGIN_MS) {
     return cachedToken.accessToken;
@@ -43,9 +43,10 @@ export async function getAccessToken(): Promise<string> {
   const credentialSecret = process.env.AMAZON_CREDENTIAL_SECRET;
 
   if (!credentialId || !credentialSecret) {
-    throw new Error(
+    console.error(
       "Missing Amazon API configuration (AMAZON_CREDENTIAL_ID or AMAZON_CREDENTIAL_SECRET)"
     );
+    return null;
   }
 
   try {
@@ -82,7 +83,7 @@ export async function getAccessToken(): Promise<string> {
     } else {
       console.error("Unexpected Error:", error);
     }
-    throw error;
+    return null;
   }
 }
 

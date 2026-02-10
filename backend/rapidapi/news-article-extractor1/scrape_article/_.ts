@@ -10,7 +10,7 @@ export interface ArticleScrapeResponse {
 
 export async function scrapeArticle(
   articleUrl: string
-): Promise<ArticleScrapeResponse> {
+): Promise<ArticleScrapeResponse | null> {
   const options = {
     method: "GET",
     url: "https://news-article-extractor1.p.rapidapi.com/api/scrape_article",
@@ -28,7 +28,7 @@ export async function scrapeArticle(
     const response = await axios.request<ArticleScrapeResponse>(options);
     return response.data;
   } catch (error) {
-    // console.error("Error scraping article:", error);
-    throw error;
+    console.error("Error scraping article:", error);
+    return null;
   }
 }

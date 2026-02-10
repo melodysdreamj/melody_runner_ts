@@ -79,7 +79,9 @@ export class HotCategoryExcel {
   constructor() {
     const dataDir = path.join(__dirname, "data");
     if (!fs.existsSync(dataDir)) {
-      throw new Error(`data 폴더가 없습니다: ${dataDir}`);
+      console.error(`data 폴더가 없습니다: ${dataDir}`);
+      this.filePath = "";
+      return;
     }
 
     const xlsxFiles = fs
@@ -87,7 +89,9 @@ export class HotCategoryExcel {
       .filter((f) => f.endsWith(".xlsx") || f.endsWith(".xls"));
 
     if (xlsxFiles.length === 0) {
-      throw new Error(`data 폴더에 엑셀 파일이 없습니다: ${dataDir}`);
+      console.error(`data 폴더에 엑셀 파일이 없습니다: ${dataDir}`);
+      this.filePath = "";
+      return;
     }
 
     this.filePath = path.join(dataDir, xlsxFiles[0]);
@@ -99,7 +103,8 @@ export class HotCategoryExcel {
     const worksheet = workbook.Sheets[target];
 
     if (!worksheet) {
-      throw new Error(`시트 "${target}"를 찾을 수 없습니다.`);
+      console.error(`시트 "${target}"를 찾을 수 없습니다.`);
+      return [];
     }
 
     const rows: Record<string, any>[] = XLSX.utils.sheet_to_json(worksheet, {

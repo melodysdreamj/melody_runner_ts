@@ -57,10 +57,12 @@ export async function getBrowseNodes(
   params: GetBrowseNodesParams
 ): Promise<GetBrowseNodesResponse | null> {
   if (!params.browseNodeIds || params.browseNodeIds.length === 0) {
-    throw new Error("browseNodeIds는 최소 1개 이상 필요합니다.");
+    console.error("browseNodeIds는 최소 1개 이상 필요합니다.");
+    return null;
   }
   if (params.browseNodeIds.length > 10) {
-    throw new Error("browseNodeIds는 최대 10개까지 가능합니다.");
+    console.error("browseNodeIds는 최대 10개까지 가능합니다.");
+    return null;
   }
 
   const body: Record<string, any> = {

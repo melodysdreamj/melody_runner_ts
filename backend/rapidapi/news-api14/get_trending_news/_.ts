@@ -57,6 +57,6 @@ export async function getTrendingNews(
     }
   } catch (error) {
     console.error("Error fetching trending news from News API14:", error);
-    throw error;
+    return [];
   }
 }

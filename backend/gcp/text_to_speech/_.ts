@@ -88,10 +88,10 @@ export async function synthesizeSpeechToFile(
 
   const request: protos.google.cloud.texttospeech.v1.ISynthesizeSpeechRequest = {
     input: { text: processedText },
-    voice: { 
-        languageCode: options.languageCode, 
-        name: options.name,
-        ssmlGender: options.ssmlGender as protos.google.cloud.texttospeech.v1.SsmlVoiceGender 
+    voice: {
+      languageCode: options.languageCode,
+      name: options.name,
+      ssmlGender: options.ssmlGender as protos.google.cloud.texttospeech.v1.SsmlVoiceGender
     },
     audioConfig: {
       audioEncoding: "OGG_OPUS",
@@ -102,7 +102,8 @@ export async function synthesizeSpeechToFile(
     const [response] = await client.synthesizeSpeech(request);
 
     if (!response.audioContent) {
-      throw new Error("Audio content is empty.");
+      console.error("Audio content is empty.");
+      return false;
     }
 
     await fs.writeFile(outputFileName, response.audioContent, "binary");
@@ -131,10 +132,10 @@ export async function synthesizeSpeechToBuffer(
 
   const request: protos.google.cloud.texttospeech.v1.ISynthesizeSpeechRequest = {
     input: { text: processedText },
-    voice: { 
-        languageCode: options.languageCode, 
-        name: options.name,
-        ssmlGender: options.ssmlGender as protos.google.cloud.texttospeech.v1.SsmlVoiceGender 
+    voice: {
+      languageCode: options.languageCode,
+      name: options.name,
+      ssmlGender: options.ssmlGender as protos.google.cloud.texttospeech.v1.SsmlVoiceGender
     },
     audioConfig: {
       audioEncoding: "OGG_OPUS",
@@ -145,7 +146,7 @@ export async function synthesizeSpeechToBuffer(
     const [response] = await client.synthesizeSpeech(request);
 
     if (!response.audioContent) {
-        return null;
+      return null;
     }
 
     return response.audioContent instanceof Buffer

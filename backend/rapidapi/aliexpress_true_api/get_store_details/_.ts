@@ -41,6 +41,6 @@ export async function getStoreDetails(
     return response.data;
   } catch (error) {
     console.error("API Call Failed:", error);
-    throw error;
+    return null;
   }
 }

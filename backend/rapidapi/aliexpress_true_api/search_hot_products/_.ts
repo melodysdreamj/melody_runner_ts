@@ -61,6 +61,6 @@ export async function searchHotProducts(
     } else {
       console.error("Unexpected Error:", error);
     }
-    throw error;
+    return null;
   }
 }

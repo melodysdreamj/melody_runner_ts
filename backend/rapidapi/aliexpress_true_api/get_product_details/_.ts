@@ -14,23 +14,23 @@ export interface ProductDetails {
   product_images: string[];
   product_video_url?: string;
   keywords?: string;
-  
+
   // Pricing
   original_price: string;
   sale_price: string;
   currency: string;
   discount: string;
-  
+
   // Stats
   orders: number;
   review_rating: number; // 0-5
   total_reviews: number;
-  
+
   // Store Info
   store_id: string;
   store_name: string;
   store_url: string;
-  
+
   // Description (HTML or Text)
   description?: string;
   specifications?: Record<string, string>;
@@ -63,6 +63,6 @@ export async function getProductDetails(
     } else {
       console.error("Unexpected Error:", error);
     }
-    throw error;
+    return null;
   }
 }

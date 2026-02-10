@@ -67,6 +67,6 @@ export async function searchByGeolocation(
     }
   } catch (error) {
     console.error("Error fetching Google News by geolocation:", error);
-    throw error;
+    return [];
   }
 }

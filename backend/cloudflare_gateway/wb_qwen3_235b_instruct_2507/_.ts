@@ -13,16 +13,18 @@ const MODEL_ID = "Qwen/Qwen3-235B-A22B-Instruct-2507";
 export async function requestCloudflareGatewayWbQwen3(
     question: string,
     onChunk?: (chunk: string) => void
-): Promise<string> {
+): Promise<string | null> {
     const accountId = process.env.CLOUDFLARE_ACCOUNT_ID;
     const gatewayName = process.env.CLOUDFLARE_GATEWAY_NAME;
     const apiKey = process.env.WANDB_API_KEY;
 
     if (!accountId || !gatewayName) {
-        throw new Error("Missing Cloudflare Gateway configuration (CLOUDFLARE_ACCOUNT_ID or CLOUDFLARE_GATEWAY_NAME)");
+        console.error("Missing Cloudflare Gateway configuration (CLOUDFLARE_ACCOUNT_ID or CLOUDFLARE_GATEWAY_NAME)");
+        return null;
     }
     if (!apiKey) {
-        throw new Error("Missing WANDB_API_KEY environment variable");
+        console.error("Missing WANDB_API_KEY environment variable");
+        return null;
     }
 
     // Universal Endpoint Construction
@@ -61,6 +63,6 @@ export async function requestCloudflareGatewayWbQwen3(
 
     } catch (error) {
         console.error("Error calling Cloudflare Gateway (W&B Qwen3):", error);
-        throw error;
+        return null;
     }
 }

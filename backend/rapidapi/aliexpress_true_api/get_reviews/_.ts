@@ -54,9 +54,9 @@ export async function getReviews(
     return response.data;
   } catch (error) {
     if (axios.isAxiosError(error)) {
-        // Log silently or specific handling
-        console.error("API Error in getReviews:", error.message);
+      // Log silently or specific handling
+      console.error("API Error in getReviews:", error.message);
     }
-    throw error;
+    return null;
   }
 }

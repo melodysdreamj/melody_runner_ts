@@ -44,20 +44,22 @@ const OPERATION_TARGETS: Record<string, string> = {
 export async function amazonPost<T = any>(
   operation: string,
   body: Record<string, any> = {}
-): Promise<T> {
+): Promise<T | null> {
   const host = process.env.AMAZON_HOST || DEFAULT_HOST;
   const partnerTag = process.env.AMAZON_PARTNER_TAG;
   const marketplace = process.env.AMAZON_MARKETPLACE || DEFAULT_MARKETPLACE;
 
   if (!partnerTag) {
-    throw new Error(
+    console.error(
       "Missing Amazon API configuration (AMAZON_PARTNER_TAG)"
     );
+    return null;
   }
 
   const target = OPERATION_TARGETS[operation];
   if (!target) {
-    throw new Error(`Unknown Amazon API operation: ${operation}`);
+    console.error(`Unknown Amazon API operation: ${operation}`);
+    return null;
   }
 
   // 공통 파라미터 주입 (lowerCamelCase — Creators API 컨벤션)
@@ -93,6 +95,6 @@ export async function amazonPost<T = any>(
     } else {
       console.error("Unexpected Error:", error);
     }
-    throw error;
+    return null;
   }
 }

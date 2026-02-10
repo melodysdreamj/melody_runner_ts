@@ -67,6 +67,6 @@ export async function searchByKeyword(
     }
   } catch (error) {
     console.error("Error fetching Google News by keyword:", error);
-    throw error;
+    return [];
   }
 }

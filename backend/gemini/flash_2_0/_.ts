@@ -7,7 +7,8 @@ export async function requestGemini20Flash(
   const API_KEY = process.env.GEMINI_API_KEY;
 
   if (!API_KEY) {
-    throw new Error("GEMINI_API_KEY is not set in the environment variables");
+    console.error("GEMINI_API_KEY is not set in the environment variables.");
+    return null;
   }
 
   const genAI = new GoogleGenerativeAI(API_KEY);

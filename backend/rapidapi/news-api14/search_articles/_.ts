@@ -57,6 +57,6 @@ export async function searchArticles(
     }
   } catch (error) {
     console.error("Error searching articles from News API14:", error);
-    throw error;
+    return [];
   }
 }

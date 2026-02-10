@@ -64,10 +64,12 @@ export async function getItems(
   params: GetItemsParams
 ): Promise<GetItemsResponse | null> {
   if (!params.itemIds || params.itemIds.length === 0) {
-    throw new Error("itemIds는 최소 1개 이상 필요합니다.");
+    console.error("itemIds는 최소 1개 이상 필요합니다.");
+    return null;
   }
   if (params.itemIds.length > 10) {
-    throw new Error("itemIds는 최대 10개까지 가능합니다.");
+    console.error("itemIds는 최대 10개까지 가능합니다.");
+    return null;
   }
 
   const body: Record<string, any> = {

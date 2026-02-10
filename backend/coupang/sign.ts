@@ -26,14 +26,15 @@ export function generateAuthorization(
   httpMethod: string,
   path: string,
   query: string = ""
-): string {
+): string | null {
   const accessKey = process.env.COUPANG_ACCESS_KEY;
   const secretKey = process.env.COUPANG_SECRET_KEY;
 
   if (!accessKey || !secretKey) {
-    throw new Error(
+    console.error(
       "Missing Coupang API configuration (COUPANG_ACCESS_KEY or COUPANG_SECRET_KEY)"
     );
+    return null;
   }
 
   // UTC datetime: 쿠팡 공식 포맷 — yyMMddTHHmmssZ (2자리 연도)
@@ -65,7 +66,7 @@ export function generateAuthorization(
 export async function coupangGet<T = any>(
   path: string,
   queryParams: Record<string, string> = {}
-): Promise<T> {
+): Promise<T | null> {
   // 서명용 query: ? 없이 (예: "limit=5")
   const queryForSign = Object.keys(queryParams).length > 0
     ? new URLSearchParams(queryParams).toString()
@@ -89,7 +90,7 @@ export async function coupangGet<T = any>(
     } else {
       console.error("Unexpected Error:", error);
     }
-    throw error;
+    return null;
   }
 }
 
@@ -99,7 +100,7 @@ export async function coupangGet<T = any>(
 export async function coupangPost<T = any>(
   path: string,
   body: any = {}
-): Promise<T> {
+): Promise<T | null> {
   const authorization = generateAuthorization("POST", path);
 
   try {
@@ -116,6 +117,6 @@ export async function coupangPost<T = any>(
     } else {
       console.error("Unexpected Error:", error);
     }
-    throw error;
+    return null;
   }
 }

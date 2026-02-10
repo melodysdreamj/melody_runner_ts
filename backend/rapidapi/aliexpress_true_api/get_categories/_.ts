@@ -30,6 +30,6 @@ export async function getCategories(
     return response.data.categories;
   } catch (error) {
     console.error("API Call Failed:", error);
-    throw error;
+    return null;
   }
 }

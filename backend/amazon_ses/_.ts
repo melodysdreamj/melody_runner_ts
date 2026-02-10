@@ -42,7 +42,7 @@ export class AmazonSESLite {
     to: string,
     subject: string,
     textBody: string
-  ): Promise<{ MessageId: string }> {
+  ): Promise<{ MessageId: string } | null> {
     const client = this.getClient();
 
     const params: SendEmailCommandInput = {
@@ -71,7 +71,7 @@ export class AmazonSESLite {
       return { MessageId: result.MessageId! };
     } catch (error) {
       console.error("이메일 발송 실패:", error);
-      throw error;
+      return null;
     }
   }
 
@@ -88,7 +88,7 @@ export class AmazonSESLite {
     cc?: string | string[];
     bcc?: string | string[];
     replyTo?: string | string[];
-  }): Promise<{ MessageId: string }> {
+  }): Promise<{ MessageId: string } | null> {
     const client = this.getClient();
 
     // 수신자 주소들을 배열로 변환
@@ -158,7 +158,7 @@ export class AmazonSESLite {
       return { MessageId: result.MessageId! };
     } catch (error) {
       console.error("HTML 이메일 발송 실패:", error);
-      throw error;
+      return null;
     }
   }
 
@@ -174,7 +174,7 @@ export class AmazonSESLite {
     to: string | string[],
     templateName: string,
     templateData: Record<string, any>
-  ): Promise<{ MessageId: string }> {
+  ): Promise<{ MessageId: string } | null> {
     const client = this.getClient();
 
     const toAddresses = Array.isArray(to) ? to : [to];
@@ -195,7 +195,7 @@ export class AmazonSESLite {
       return { MessageId: result.MessageId! };
     } catch (error) {
       console.error("템플릿 이메일 발송 실패:", error);
-      throw error;
+      return null;
     }
   }
 
@@ -207,7 +207,7 @@ export class AmazonSESLite {
   static async sendRawEmail(
     rawMessage: string,
     destinations?: string[]
-  ): Promise<{ MessageId: string }> {
+  ): Promise<{ MessageId: string } | null> {
     const client = this.getClient();
 
     const params: SendRawEmailCommandInput = {
@@ -227,7 +227,7 @@ export class AmazonSESLite {
       return { MessageId: result.MessageId! };
     } catch (error) {
       console.error("Raw 이메일 발송 실패:", error);
-      throw error;
+      return null;
     }
   }
 
@@ -245,7 +245,7 @@ export class AmazonSESLite {
     subject: string,
     textBody: string,
     htmlBody?: string
-  ): Promise<{ MessageId: string }> {
+  ): Promise<{ MessageId: string } | null> {
     const client = this.getClient();
 
     const body: any = {
@@ -283,7 +283,7 @@ export class AmazonSESLite {
       return { MessageId: result.MessageId! };
     } catch (error) {
       console.error("대량 이메일 발송 실패:", error);
-      throw error;
+      return null;
     }
   }
 }

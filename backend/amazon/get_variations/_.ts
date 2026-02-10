@@ -73,7 +73,8 @@ export async function getVariations(
   params: GetVariationsParams
 ): Promise<GetVariationsResponse | null> {
   if (!params.asin) {
-    throw new Error("asin은 필수입니다.");
+    console.error("asin은 필수입니다.");
+    return null;
   }
 
   const body: Record<string, any> = {

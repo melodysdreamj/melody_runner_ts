@@ -28,17 +28,18 @@ async function runTests() {
     process.exit(1);
   }
 
-  // Test 2: Error case
+  // Test 2: Error case (returns null instead of throwing)
   try {
     mock
       .onGet("https://aliexpress-true-api.p.rapidapi.com/affiliate-link-generate")
       .reply(500, { message: "Internal Server Error" });
 
-    await generateAffiliateLink({ url: "https://www.aliexpress.com/item/123" });
-    console.error("  ❌ Error case failed: Should have thrown error");
-    process.exit(1);
+    const result = await generateAffiliateLink({ url: "https://www.aliexpress.com/item/123" });
+    assert.strictEqual(result, null, "Should return null on API error");
+    console.log("  ✅ Error case passed (returned null as expected)");
   } catch (err) {
-    console.log("  ✅ Error case passed (caught expected error)");
+    console.error("  ❌ Error case failed:", err);
+    process.exit(1);
   }
 
   console.log("All generateAffiliateLink tests passed!");

@@ -62,6 +62,7 @@ export async function searchByTopHeadlines(
       return [];
     }
   } catch (error) {
-    throw error;
+    console.error("Error fetching Google News top headlines:", error);
+    return [];
   }
 }

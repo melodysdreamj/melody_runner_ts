@@ -8,12 +8,13 @@ export class DeepL {
      * @param toLang 목표 언어 코드 (예: 'ko')
      * @returns 번역된 텍스트
      */
-    static async translate(text: string, fromLang: string, toLang: string): Promise<string> {
+    static async translate(text: string, fromLang: string, toLang: string): Promise<string | null> {
         const apiKey = process.env.DEEPL_API_KEY;
         const url = 'https://api-free.deepl.com/v2/translate';
 
         if (!apiKey) {
-            throw new Error("DEEPL_API_KEY is not set in environment variables.");
+            console.error("DEEPL_API_KEY is not set in environment variables.");
+            return null;
         }
 
         try {
@@ -24,7 +25,7 @@ export class DeepL {
             // 원본 코드는 params를 사용했으나 POST body로 보내는 것이 더 안전함 (길이 제한 등).
             // 하지만 원본 코드의 의도를 유지하여 params로 보냄 (DeepL 문서를 보면 POST로 body에 데이터를 담는 것을 권장하지만 params도 동작은 함)
             // 안정을 위해 `new URLSearchParams`를 사용하여 body로 전송하도록 개선
-            
+
             const params = new URLSearchParams();
             params.append('auth_key', apiKey);
             params.append('text', text);
@@ -38,7 +39,7 @@ export class DeepL {
             return translatedText;
         } catch (err) {
             console.error('Error translating text:', err);
-            throw err;
+            return null;
         }
     }
 }
