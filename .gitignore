@@ -1,0 +1,11 @@
+.idea
+node_modules
+.DS_Store
+
+# 환경변수 (실제 API 키가 담긴 파일)
+.env
+.env.local
+
+# Google Cloud SDK
+google-cloud-sdk/
+google-cloud-cli-darwin-arm.tar.gz

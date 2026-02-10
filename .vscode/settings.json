@@ -1,0 +1,6 @@
+{
+    "code-runner.executorMap": {
+        "typescript": "npx tsx ${file}"
+    },
+    "code-runner.runInTerminal": true
+} 

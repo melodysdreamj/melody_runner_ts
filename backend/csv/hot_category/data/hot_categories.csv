@@ -1,0 +1,52 @@
+vendor,categoryId,categoryName,itemCount,categoryLevel
+coupang,1001,여성패션,10,대분류
+coupang,1002,남성패션,10,대분류
+coupang,1003,패션의류,10,대분류
+coupang,1007,패션잡화,10,대분류
+coupang,1008,스포츠용품,10,대분류
+coupang,1010,뷰티,10,대분류
+coupang,1011,출산/유아동,10,대분류
+coupang,1012,식품,10,대분류
+coupang,1013,주방용품,10,대분류
+coupang,1014,생활용품,10,대분류
+coupang,1015,홈인테리어,10,대분류
+coupang,1016,가전디지털,10,대분류
+coupang,1017,스포츠/레저,10,대분류
+coupang,1018,자동차용품,10,대분류
+coupang,1019,도서/음반/DVD,10,대분류
+coupang,1020,완구/취미,10,대분류
+coupang,1021,문구/오피스,10,대분류
+coupang,1022,반려/애완용품,10,대분류
+coupang,1024,헬스/건강식품,10,대분류
+coupang,1025,국내여행,10,대분류
+coupang,1026,해외여행,10,대분류
+coupang,1029,반려동물용품,10,대분류
+coupang,1030,유아동패션,10,대분류
+aliexpress,100003109,Home & Garden,10,대분류
+aliexpress,100003070,Consumer Electronics,10,대분류
+aliexpress,100003071,Computer & Office,10,대분류
+aliexpress,100003076,Cellphones & Telecommunications,10,대분류
+aliexpress,200003482,Women's Clothing,10,대분류
+aliexpress,200003494,Men's Clothing,10,대분류
+aliexpress,200000345,Shoes,10,대분류
+aliexpress,200000297,Jewelry & Accessories,10,대분류
+aliexpress,200000346,Bags & Shoes,10,대분류
+aliexpress,100003106,Beauty & Health,10,대분류
+aliexpress,100003108,Lights & Lighting,10,대분류
+aliexpress,100003235,Sports & Entertainment,10,대분류
+aliexpress,100003205,Toys & Hobbies,10,대분류
+aliexpress,100003099,Tools,10,대분류
+aliexpress,100003100,Home Improvement,10,대분류
+aliexpress,100003188,Mother & Kids,10,대분류
+aliexpress,100003245,Security & Protection,10,대분류
+aliexpress,100003350,"Automobiles, Parts & Accessories",10,대분류
+aliexpress,100003207,Office & School Supplies,10,대분류
+aliexpress,200000532,Watches,10,대분류
+aliexpress,100003086,Electronic Components & Supplies,10,대분류
+aliexpress,200000306,Hair Extensions & Wigs,10,대분류
+aliexpress,200000298,Apparel Accessories,10,대분류
+aliexpress,200000532,Underwear & Loungewear,10,대분류
+aliexpress,100003187,Furniture,10,대분류
+aliexpress,200000780,Novelty & Special Use,10,대분류
+aliexpress,200001996,Weddings & Events,10,대분류
+aliexpress,200001075,Luggage & Bags,10,대분류
