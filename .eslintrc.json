@@ -1,0 +1,84 @@
+{
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "plugins": [],
+    "rules": {
+        "no-restricted-imports": [
+            "error",
+            {
+                "patterns": [
+                    {
+                        "group": [
+                            "**/controller/**",
+                            "**/frontend/**"
+                        ],
+                        "message": "Backend은 Controller/Frontend을 import할 수 없습니다 (RULES.md §2)."
+                    }
+                ]
+            }
+        ]
+    },
+    "overrides": [
+        {
+            "files": [
+                "backend/**/*.ts"
+            ],
+            "rules": {
+                "no-restricted-imports": [
+                    "error",
+                    {
+                        "patterns": [
+                            {
+                                "group": [
+                                    "**/controller/**",
+                                    "**/frontend/**"
+                                ],
+                                "message": "Backend은 Controller/Frontend을 import할 수 없습니다 (RULES.md §2)."
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "files": [
+                "controller/**/*.ts"
+            ],
+            "rules": {
+                "no-restricted-imports": [
+                    "error",
+                    {
+                        "patterns": [
+                            {
+                                "group": [
+                                    "**/frontend/**"
+                                ],
+                                "message": "Controller는 Frontend을 import할 수 없습니다 (RULES.md §2)."
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "files": [
+                "frontend/**/*.ts"
+            ],
+            "rules": {
+                "no-restricted-imports": [
+                    "error",
+                    {
+                        "patterns": [
+                            {
+                                "group": [
+                                    "**/backend/**"
+                                ],
+                                "message": "Frontend은 Backend을 직접 import할 수 없습니다. Controller를 경유하세요 (RULES.md §2)."
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

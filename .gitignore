@@ -6,6 +6,9 @@ node_modules
 .env
 .env.local
 
+# npm lockfile (pnpm 사용)
+package-lock.json
+
 # Google Cloud SDK
 google-cloud-sdk/
 google-cloud-cli-darwin-arm.tar.gz
