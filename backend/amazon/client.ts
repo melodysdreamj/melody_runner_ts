@@ -2,10 +2,7 @@
 // OAuth Bearer 토큰을 사용한 POST 요청
 
 import axios from "axios";
-import dotenv from "dotenv";
 import { getAccessToken } from "./auth";
-
-dotenv.config();
 
 // ============================================================
 // 설정 상수

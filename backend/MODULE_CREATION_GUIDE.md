@@ -64,7 +64,10 @@ backend/<module_name>/
 
 ```typescript
 // note/_.ts pattern
+import dotenv from "dotenv";
 import { myFunction } from "../_";
+
+dotenv.config();
 
 ;(async () => {
     console.log("Start Playground...");
@@ -73,3 +76,6 @@ import { myFunction } from "../_";
     process.exit(0);
 })();
 ```
+
+> **필수**: `note/_.ts`는 독립 실행 진입점이므로 반드시 `dotenv.config()`를 호출해야 합니다.
+> Backend 구현 파일(`_.ts`)에서는 `dotenv.config()` 호출이 **금지**됩니다. 자세한 내용은 [RULES.md](../RULES.md)의 §4를 참고하세요.

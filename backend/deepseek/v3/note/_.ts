@@ -1,5 +1,7 @@
-
+import dotenv from "dotenv";
 import { requestDeepseekV3Chat } from "../_";
+
+dotenv.config();
 
 ;(async () => {
     console.log("DeepSeek V3 Chat Test Start");

@@ -1,5 +1,7 @@
-
+import dotenv from "dotenv";
 import { DuckDuckGo } from "../_";
+
+dotenv.config();
 
 ;(async () => {
     console.log("start DuckDuckGo search test");

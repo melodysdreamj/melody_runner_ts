@@ -1,4 +1,7 @@
+import dotenv from "dotenv";
 import { searchByGeolocation } from "./_";
+
+dotenv.config();
 
 ;(async () => {
   console.log("start");

@@ -70,3 +70,85 @@ graph LR
     B[Backend] -.->|X No Knowledge| C
     F -.->|X Forbidden| B
 ```
+
+## 3. 에러 핸들링 표준 (Error Handling Standard)
+
+모든 Backend 모듈은 **하나의 에러 핸들링 패턴**을 따라야 합니다. 혼재된 패턴은 호출자의 혼란을 초래하므로 금지합니다.
+
+### 3.1. 표준 패턴: `return null` (Nullable Return)
+
+Backend 함수는 **에러를 throw하지 않고**, 실패 시 `null`을 반환합니다.
+
+```typescript
+// ✅ 올바른 패턴
+export async function fetchSomething(query: string): Promise<SomeType | null> {
+    try {
+        const result = await apiCall(query);
+        return result;
+    } catch (error) {
+        console.error("fetchSomething 실패:", error);
+        return null;
+    }
+}
+```
+
+```typescript
+// ❌ 금지 패턴 1: throw error
+catch (error) {
+    console.error("실패:", error);
+    throw error;  // ← Backend에서 throw 금지
+}
+
+// ❌ 금지 패턴 2: 패턴 혼재 (같은 모듈에서 throw와 return null 섞기)
+```
+
+### 3.2. 적용 범위
+
+| 레이어 | 에러 핸들링 |
+| :--- | :--- |
+| **Backend** | `try-catch` → `console.error` → `return null` |
+| **Controller** | Backend의 `null` 반환을 검사하여 분기 처리 |
+| **Frontend** | Controller 호출을 `try-catch`로 감싸고, 사용자에게 결과 출력 |
+
+### 3.3. 배열 반환 함수의 경우
+
+배열을 반환하는 함수는 실패 시 **빈 배열 `[]`**을 반환합니다.
+
+```typescript
+export async function searchItems(query: string): Promise<Item[]> {
+    try {
+        const items = await apiCall(query);
+        return items;
+    } catch (error) {
+        console.error("searchItems 실패:", error);
+        return [];
+    }
+}
+```
+
+## 4. 환경변수 로딩 규칙 (dotenv Rules)
+
+`dotenv.config()`는 **진입점(Entry Point)**에서만 호출합니다. Backend 구현 파일에서 직접 호출하는 것은 금지입니다.
+
+### 4.1. 호출 허용 위치
+
+| 위치 | `dotenv.config()` 호출 | 이유 |
+| :--- | :--- | :--- |
+| `frontend/*/_.ts` | ✅ 허용 | 사용자 실행 진입점 |
+| `*/note/_.ts` | ✅ 허용 | 독립 실행 연습장 |
+| `backend/*/_.ts` | ❌ **금지** | 진입점이 아닌 라이브러리 코드 |
+| `controller/*/_.ts` | ❌ **금지** | 진입점이 아닌 라이브러리 코드 |
+
+### 4.2. Backend에서 환경변수 접근
+
+Backend 모듈은 `dotenv.config()`를 호출하지 않고, `process.env`를 직접 참조합니다.
+진입점(Frontend 또는 note)에서 이미 환경변수가 로딩된 상태를 전제합니다.
+
+```typescript
+// ✅ backend/gemini/flash_2_0/_.ts — dotenv 없이 process.env 사용
+const apiKey = process.env.GEMINI_API_KEY;
+
+// ❌ 금지: backend 구현 파일에서 dotenv 호출
+import dotenv from "dotenv";
+dotenv.config();  // ← Backend에서 금지
+```

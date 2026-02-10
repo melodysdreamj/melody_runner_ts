@@ -1,6 +1,8 @@
-
+import dotenv from "dotenv";
 import { synthesizeSpeechToFile, synthesizeSpeechToBuffer } from "../_";
 import * as fs from "fs/promises";
+
+dotenv.config();
 
 ;(async () => {
     console.log("start GCP TTS Test");

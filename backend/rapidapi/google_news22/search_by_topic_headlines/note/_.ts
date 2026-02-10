@@ -1,4 +1,7 @@
+import dotenv from "dotenv";
 import { searchByTopicHeadlines } from "./_";
+
+dotenv.config();
 
 ;(async () => {
   console.log("start");

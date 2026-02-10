@@ -1,5 +1,7 @@
-
+import dotenv from "dotenv";
 import { requestGpt4oChat } from "../_";
+
+dotenv.config();
 
 ;(async () => {
     console.log("start GPT-4o Mini Test");

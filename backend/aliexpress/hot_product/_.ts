@@ -2,10 +2,6 @@
 // API Method: aliexpress.affiliate.hotproduct.query
 
 import { callAliExpressApi } from "../sign";
-import dotenv from "dotenv";
-
-dotenv.config();
-
 export interface QueryHotProductsParams {
   category_ids?: string;
   keywords?: string;

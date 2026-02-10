@@ -1,5 +1,8 @@
+import dotenv from "dotenv";
 // GetItems 실행 연습장
 import { getItems } from "../_";
+
+dotenv.config();
 
 ;(async () => {
     console.log("=== Amazon Creators API: 상품 상세 조회 ===");

@@ -2,10 +2,6 @@
 // Endpoint: GET /v2/providers/affiliate_open_api/apis/openapi/products/bestcategories/{categoryId}
 
 import { coupangGet } from "../sign";
-import dotenv from "dotenv";
-
-dotenv.config();
-
 const BASE_PATH = "/v2/providers/affiliate_open_api/apis/openapi/products/bestcategories";
 
 export interface BestCategoriesParams {

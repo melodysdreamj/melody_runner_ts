@@ -1,12 +1,9 @@
 
 import OpenAI from "openai";
-import dotenv from "dotenv";
-
 export async function requestOpenRouterQwen3_235B_A22B_2507(
   prompt: string
 ): Promise<string | null> {
   try {
-    dotenv.config();
     const openai = new OpenAI({
       baseURL: "https://openrouter.ai/api/v1",
       apiKey: process.env.OPENROUTER_API_KEY,

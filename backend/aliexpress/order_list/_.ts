@@ -3,10 +3,6 @@
 // ★ 핵심: AffiliateSale 테이블의 데이터 소스
 
 import { callAliExpressApi } from "../sign";
-import dotenv from "dotenv";
-
-dotenv.config();
-
 export interface GetOrderListParams {
   start_time: string;           // "2026-02-01 00:00:00" 형식
   end_time: string;             // "2026-02-07 23:59:59" 형식

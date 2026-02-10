@@ -2,8 +2,6 @@
 import OpenAI from "openai";
 import { zodResponseFormat } from "openai/helpers/zod";
 import { z } from "zod";
-import dotenv from "dotenv";
-
 const CalendarEvent = z.object({
     name: z.string(),
     date: z.string(),
@@ -12,8 +10,6 @@ const CalendarEvent = z.object({
 
 export async function requestNewGpt4oParsedChat(question: string) : Promise<any | null> {
     try {
-        dotenv.config();
-        
         const openai = new OpenAI({
             apiKey: process.env.OPENAI_API_KEY,
         });

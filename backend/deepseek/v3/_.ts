@@ -1,10 +1,7 @@
 
 import OpenAI from 'openai';
-import dotenv from "dotenv";
-
 export async function requestDeepseekV3Chat(question: string): Promise<string | null> {
     try {
-        dotenv.config();
 
         const apiKey = process.env.DEEPSEEK_API_KEY;
         if (!apiKey) {

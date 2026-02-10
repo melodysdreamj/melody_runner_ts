@@ -353,9 +353,12 @@ export async function createTable() {
 파일 업로드/다운로드 및 기본 CRUD를 테스트하는 스크립트 예시입니다.
 
 ```typescript
+import dotenv from "dotenv";
 import { Post, PostPocketBaseCollection } from "../_";
 import * as fs from "fs";
 import path from "path";
+
+dotenv.config();
 
 async function main() {
     console.log("--- PocketBase Test Start ---");

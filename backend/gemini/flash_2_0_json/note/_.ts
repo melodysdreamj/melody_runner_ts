@@ -1,5 +1,7 @@
-
+import dotenv from "dotenv";
 import { requestGeminiFlash20Json } from "../_";
+
+dotenv.config();
 
 ;(async () => {
     console.log("start Gemini 2.0 Flash (JSON) Test");

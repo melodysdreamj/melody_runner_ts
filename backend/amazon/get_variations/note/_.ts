@@ -1,5 +1,8 @@
+import dotenv from "dotenv";
 // GetVariations 실행 연습장
 import { getVariations } from "../_";
+
+dotenv.config();
 
 ;(async () => {
     console.log("=== Amazon Creators API: 상품 변형 조회 ===");

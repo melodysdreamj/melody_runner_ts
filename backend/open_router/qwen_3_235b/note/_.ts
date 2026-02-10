@@ -1,5 +1,7 @@
-
+import dotenv from "dotenv";
 import { requestOpenRouterQwen3_235B_A22B_2507 } from "../_";
+
+dotenv.config();
 
 ;(async () => {
   console.log("Qwen 3 235B 테스트 시작");

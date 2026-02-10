@@ -1,5 +1,8 @@
+import dotenv from "dotenv";
 // 어필리에이트 링크 생성 실행 연습장
 import { generateLink } from "../_";
+
+dotenv.config();
 
 ;(async () => {
     console.log("=== 알리 공식 API: 링크 생성 ===");

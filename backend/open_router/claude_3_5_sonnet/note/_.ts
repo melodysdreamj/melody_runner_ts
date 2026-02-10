@@ -1,5 +1,7 @@
-
+import dotenv from "dotenv";
 import { requestOpenRouterClaude35Sonnet } from "../_";
+
+dotenv.config();
 
 ;(async () => {
   console.log("start Claude 3.5 Sonnet Test");

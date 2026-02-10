@@ -1,11 +1,8 @@
 
 import { GoogleGenerativeAI, GenerativeModel } from "@google/generative-ai";
-import dotenv from "dotenv";
-
 export async function requestGeminiFlash20Json(
   prompt: string
 ): Promise<string | null> {
-  dotenv.config();
 
   const API_KEY = process.env.GEMINI_API_KEY;
 

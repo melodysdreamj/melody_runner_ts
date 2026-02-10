@@ -1,5 +1,8 @@
+import dotenv from "dotenv";
 // 상품 검색 실행 연습장
 import { searchProducts } from "../_";
+
+dotenv.config();
 
 ;(async () => {
     console.log("=== 쿠팡 파트너스: 상품 검색 ===");

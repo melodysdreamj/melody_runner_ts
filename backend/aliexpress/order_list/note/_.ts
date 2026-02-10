@@ -1,5 +1,8 @@
+import dotenv from "dotenv";
 // 주문/수수료 조회 실행 연습장
 import { getOrderList } from "../_";
+
+dotenv.config();
 
 ;(async () => {
     console.log("=== 알리 공식 API: 주문 내역 조회 ===");

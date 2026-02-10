@@ -620,7 +620,10 @@ export {};
 
 ### 5.4 실행 연습장 (`note/_.ts`)
 ```typescript
+import dotenv from "dotenv";
 import { PostNeon } from "../_";
+
+dotenv.config();
 
 async function main() {
     console.log("start");

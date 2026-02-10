@@ -1,5 +1,8 @@
+import dotenv from "dotenv";
 // GetBrowseNodes 실행 연습장
 import { getBrowseNodes } from "../_";
+
+dotenv.config();
 
 ;(async () => {
     console.log("=== Amazon Creators API: 카테고리 조회 ===");

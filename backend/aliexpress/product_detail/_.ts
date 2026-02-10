@@ -2,10 +2,6 @@
 // API Method: aliexpress.affiliate.productdetail.get
 
 import { callAliExpressApi } from "../sign";
-import dotenv from "dotenv";
-
-dotenv.config();
-
 export interface GetProductDetailParams {
   product_ids: string;          // 쉼표 구분 상품 ID (최대 50개)
   target_currency?: string;

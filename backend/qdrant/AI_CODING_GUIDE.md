@@ -389,7 +389,10 @@ export {};
 ### 4.2 실행 연습장 (`note/_.ts`)
 
 ```typescript
+import dotenv from "dotenv";
 import { New, NewQdrant } from "../_";
+
+dotenv.config();
 
 ;(async () => {
     console.log("--- Qdrant Test Start ---");

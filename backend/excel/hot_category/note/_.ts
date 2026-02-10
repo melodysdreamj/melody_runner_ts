@@ -1,4 +1,7 @@
+import dotenv from "dotenv";
 import { HotCategoryExcel } from "../_";
+
+dotenv.config();
 
 ;(async () => {
     console.log("start");

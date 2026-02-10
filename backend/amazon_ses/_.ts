@@ -8,10 +8,6 @@ import {
   SendRawEmailCommand,
   SendRawEmailCommandInput,
 } from "@aws-sdk/client-ses";
-import dotenv from "dotenv";
-
-dotenv.config();
-
 /**
  * Amazon SES를 사용하여 이메일을 전송하는 클래스 (AWS SDK v3)
  */

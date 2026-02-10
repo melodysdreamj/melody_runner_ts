@@ -238,7 +238,10 @@ export class ProductExcel {
 
 ### 4.1 실행 연습장 (`note/_.ts`)
 ```typescript
+import dotenv from "dotenv";
 import { ProductExcel } from "../_";
+
+dotenv.config();
 
 ;(async () => {
     console.log("start");

@@ -1,4 +1,7 @@
+import dotenv from "dotenv";
 import { requestQwenChat } from "../_";
+
+dotenv.config();
 
 async function run() {
     console.log("📝 Testing Qwen3 235B (W&B Inference)...");

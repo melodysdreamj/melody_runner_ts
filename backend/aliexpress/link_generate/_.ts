@@ -2,10 +2,6 @@
 // API Method: aliexpress.affiliate.link.generate
 
 import { callAliExpressApi } from "../sign";
-import dotenv from "dotenv";
-
-dotenv.config();
-
 export interface GenerateLinkParams {
   source_values: string;        // 쉼표 구분 원본 URL 목록
   promotion_link_type?: string; // 0: 일반 링크, 2: 핫링크

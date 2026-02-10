@@ -1,8 +1,4 @@
-import dotenv from 'dotenv';
 import { GoogleGenerativeAI } from '@google/generative-ai';
-
-// Initialize environment variables
-dotenv.config();
 
 const ACCOUNT_ID = process.env.CLOUDFLARE_ACCOUNT_ID;
 const GATEWAY_NAME = process.env.CLOUDFLARE_GATEWAY_NAME;

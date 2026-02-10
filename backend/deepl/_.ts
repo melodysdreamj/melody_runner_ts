@@ -1,7 +1,5 @@
 
 import axios from 'axios';
-import dotenv from "dotenv";
-
 export class DeepL {
     /**
      * 텍스트 번역 함수
@@ -11,8 +9,6 @@ export class DeepL {
      * @returns 번역된 텍스트
      */
     static async translate(text: string, fromLang: string, toLang: string): Promise<string> {
-        dotenv.config();
-
         const apiKey = process.env.DEEPL_API_KEY;
         const url = 'https://api-free.deepl.com/v2/translate';
 

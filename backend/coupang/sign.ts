@@ -3,10 +3,6 @@
 
 import crypto from "crypto";
 import axios from "axios";
-import dotenv from "dotenv";
-
-dotenv.config();
-
 // ============================================================
 // 설정 상수
 // ============================================================

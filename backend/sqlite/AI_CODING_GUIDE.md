@@ -608,7 +608,10 @@ export {};
 개발 중 모델의 기능을 테스트하거나 사용 예시를 작성하는 공간입니다.
 
 ```typescript
+import dotenv from "dotenv";
 import { PostSqlite } from "../_";
+
+dotenv.config();
 
 ;(async () => {
     console.log("start");

@@ -327,7 +327,10 @@ export class PostQuickLRU {
 ## 4. 실행 스크립트 템플릿 (`note/_.ts`)
 
 ```typescript
+import dotenv from "dotenv";
 import { Post, PostQuickLRU } from "../_";
+
+dotenv.config();
 
 async function main() {
     console.log("start");

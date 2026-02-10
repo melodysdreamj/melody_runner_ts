@@ -1,5 +1,7 @@
-
+import dotenv from "dotenv";
 import { AmazonSESLite } from "../_";
+
+dotenv.config();
 
 ;(async () => {
     console.log("Amazon SES 이메일 전송 테스트 시작");

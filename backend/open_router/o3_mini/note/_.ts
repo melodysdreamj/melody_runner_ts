@@ -1,5 +1,7 @@
-
+import dotenv from "dotenv";
 import { openRouterGenerateO3Mini } from "../_";
+
+dotenv.config();
 
 ;(async () => {
   console.log("start o3-mini Test");

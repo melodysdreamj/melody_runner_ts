@@ -2,10 +2,6 @@
 // Endpoint: POST /v2/providers/affiliate_open_api/apis/openapi/v1/deeplink
 
 import { coupangPost } from "../sign";
-import dotenv from "dotenv";
-
-dotenv.config();
-
 const PATH = "/v2/providers/affiliate_open_api/apis/openapi/v1/deeplink";
 
 export interface CreateDeeplinkParams {

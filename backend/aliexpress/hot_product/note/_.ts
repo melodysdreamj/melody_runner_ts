@@ -1,5 +1,8 @@
+import dotenv from "dotenv";
 // 인기 상품 조회 실행 연습장
 import { queryHotProducts } from "../_";
+
+dotenv.config();
 
 ;(async () => {
     console.log("=== 알리 공식 API: 인기 상품 ===");

@@ -1,5 +1,7 @@
-
+import dotenv from "dotenv";
 import { getVideoId } from "../_";
+
+dotenv.config();
 
 ;(async () => {
     console.log("start get-video-id test");

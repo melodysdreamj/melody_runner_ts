@@ -1,5 +1,7 @@
-
+import dotenv from "dotenv";
 import { requestOpenRouterDeepseekV3 } from "../_";
+
+dotenv.config();
 
 ;(async () => {
   console.log("start DeepSeek V3 Test");

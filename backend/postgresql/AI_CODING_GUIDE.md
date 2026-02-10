@@ -619,7 +619,10 @@ export {};
 
 ### 5.4 실행 연습장 (`note/_.ts`)
 ```typescript
+import dotenv from "dotenv";
 import { PostPostgresql } from "../_";
+
+dotenv.config();
 
 ;(async () => {
     console.log("start");

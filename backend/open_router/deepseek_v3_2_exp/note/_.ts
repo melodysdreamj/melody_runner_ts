@@ -1,5 +1,7 @@
-
+import dotenv from "dotenv";
 import { requestDeepseek32Exp } from "../_";
+
+dotenv.config();
 
 ;(async () => {
   console.log("Deepseek 3.2 Exp 테스트 시작");

@@ -1,5 +1,8 @@
+import dotenv from "dotenv";
 // SearchItems 실행 연습장
 import { searchItems } from "../_";
+
+dotenv.config();
 
 ;(async () => {
     console.log("=== Amazon Creators API: 상품 검색 ===");

@@ -1,4 +1,7 @@
+import dotenv from "dotenv";
 import { requestCloudflareGatewayGemini20FlashLite } from "../_";
+
+dotenv.config();
 
 ;(async () => {
     console.log("start");

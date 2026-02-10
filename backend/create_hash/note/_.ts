@@ -1,5 +1,7 @@
-
+import dotenv from "dotenv";
 import { HashGenerator } from "../_";
+
+dotenv.config();
 
 ;(async () => {
     console.log("start");

@@ -1,5 +1,8 @@
+import dotenv from "dotenv";
 // 상품 검색 실행 연습장
 import { queryProducts } from "../_";
+
+dotenv.config();
 
 ;(async () => {
     console.log("=== 알리 공식 API: 상품 검색 ===");

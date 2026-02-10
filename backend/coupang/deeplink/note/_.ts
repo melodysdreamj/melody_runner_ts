@@ -1,5 +1,8 @@
+import dotenv from "dotenv";
 // 딥링크 생성 실행 연습장
 import { createDeeplink } from "../_";
+
+dotenv.config();
 
 ;(async () => {
     console.log("=== 쿠팡 파트너스: 딥링크 생성 ===");

@@ -1,5 +1,8 @@
+import dotenv from "dotenv";
 // 베스트 카테고리 상품 조회 실행 연습장
 import { getBestCategories } from "../_";
+
+dotenv.config();
 
 ;(async () => {
     console.log("=== 쿠팡 파트너스: 베스트 카테고리 ===");

@@ -262,7 +262,10 @@ CSV 파일의 모든 행을 읽어서 표준 객체 배열로 반환합니다.
 
 ### 4.1 실행 연습장 (`note/_.ts`)
 ```typescript
+import dotenv from "dotenv";
 import { ProductCsv } from "../_";
+
+dotenv.config();
 
 ;(async () => {
     console.log("start");

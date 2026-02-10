@@ -1,7 +1,4 @@
 import OpenAI from 'openai';
-import dotenv from 'dotenv';
-import path from 'path';
-
 const WANDB_TARGET_HOST = "api.inference.wandb.ai";
 const MODEL_ID = "Qwen/Qwen3-235B-A22B-Instruct-2507";
 
@@ -17,10 +14,6 @@ export async function requestCloudflareGatewayWbQwen3(
     question: string,
     onChunk?: (chunk: string) => void
 ): Promise<string> {
-    // Try to load from default location first, then fall back to relative path
-    dotenv.config();
-    dotenv.config({ path: path.resolve(__dirname, '../../../.env') });
-
     const accountId = process.env.CLOUDFLARE_ACCOUNT_ID;
     const gatewayName = process.env.CLOUDFLARE_GATEWAY_NAME;
     const apiKey = process.env.WANDB_API_KEY;

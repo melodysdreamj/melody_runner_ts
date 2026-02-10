@@ -1,5 +1,7 @@
-
+import dotenv from "dotenv";
 import { DeepL } from "../_";
+
+dotenv.config();
 
 ;(async () => {
     console.log("DeepL Translation Test Start");

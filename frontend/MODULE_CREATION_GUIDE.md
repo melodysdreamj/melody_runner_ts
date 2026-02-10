@@ -55,11 +55,12 @@ frontend/<task_name>/
 
 ```typescript
 // frontend/daily_news_summary/_.ts
-import { summarizeNewsWithProduct } from "../../controller/summarize_news/_";
 import dotenv from "dotenv";
+import { summarizeNewsWithProduct } from "../../controller/summarize_news/_";
+
+dotenv.config();
 
 ;(async () => {
-    dotenv.config();
     console.log("🚀 [daily_news_summary] 시작...");
 
     const result = await summarizeNewsWithProduct(
@@ -83,13 +84,14 @@ import dotenv from "dotenv";
 
 ```typescript
 // frontend/weekly_report/_.ts
+import dotenv from "dotenv";
 import { summarizeNewsWithProduct } from "../../controller/summarize_news/_";
 import { translateToEnglish } from "../../controller/translate_content/_";
 import fs from "fs";
-import dotenv from "dotenv";
+
+dotenv.config();
 
 ;(async () => {
-    dotenv.config();
     console.log("🚀 [weekly_report] 주간 리포트 생성 시작...");
 
     const keywords = ["AI 반도체", "전기차 배터리", "양자컴퓨터"];
@@ -117,12 +119,13 @@ import dotenv from "dotenv";
 
 ```typescript
 // frontend/scheduled_crawler/_.ts
+import dotenv from "dotenv";
 import { crawlAndStore } from "../../controller/crawl_products/_";
 import cron from "node-cron";
-import dotenv from "dotenv";
+
+dotenv.config();
 
 ;(async () => {
-    dotenv.config();
     console.log("🕐 [scheduled_crawler] 스케줄러 시작 (매 6시간)...");
 
     // 즉시 1회 실행

@@ -1,10 +1,7 @@
 
 import OpenAI from 'openai';
-import dotenv from "dotenv";
-
 export async function requestGpt4oChat(question : string) : Promise<string | null> {
     try {
-        dotenv.config();
 
         const openai = new OpenAI({
             apiKey: process.env.OPENAI_API_KEY,

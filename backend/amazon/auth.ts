@@ -2,10 +2,6 @@
 // client_credentials 방식으로 Bearer 토큰 발급 및 캐싱
 
 import axios from "axios";
-import dotenv from "dotenv";
-
-dotenv.config();
-
 // ============================================================
 // 설정 상수
 // ============================================================

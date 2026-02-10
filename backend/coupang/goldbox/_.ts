@@ -2,10 +2,6 @@
 // Endpoint: GET /v2/providers/affiliate_open_api/apis/openapi/products/goldbox
 
 import { coupangGet } from "../sign";
-import dotenv from "dotenv";
-
-dotenv.config();
-
 const PATH = "/v2/providers/affiliate_open_api/apis/openapi/products/goldbox";
 
 export interface GoldboxParams {

@@ -97,11 +97,12 @@ export async function summarizeNewsWithProduct(
 
 ```typescript
 // controller/summarize_news/note/_.ts
-import { summarizeNewsWithProduct } from "../_";
 import dotenv from "dotenv";
+import { summarizeNewsWithProduct } from "../_";
+
+dotenv.config();
 
 ;(async () => {
-    dotenv.config();
     console.log("=== Controller Playground: summarize_news ===");
 
     const result = await summarizeNewsWithProduct(
@@ -125,3 +126,4 @@ import dotenv from "dotenv";
 | **하나의 Use Case** | 폴더 하나 = 비즈니스 목적 하나. 너무 많은 책임을 넣지 말 것 |
 | **순수 조합** | Backend 함수들의 "파이프라인" 역할. 가능한 한 상태를 갖지 않을 것 |
 | **export function** | 반드시 함수를 export하여 Frontend가 호출 가능하게 할 것 |
+| **dotenv 금지** | Controller `_.ts`에서 `dotenv.config()` 호출 금지. `note/_.ts`에서만 허용 |

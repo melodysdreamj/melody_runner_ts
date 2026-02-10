@@ -1,4 +1,7 @@
+import dotenv from "dotenv";
 import { requestCloudflareGatewayOpenRouterGemini20Flash } from "../_";
+
+dotenv.config();
 
 ;(async () => {
     console.log("start");
